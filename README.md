@@ -7,7 +7,7 @@
 
 ## 📚 Sobre o Projeto
 
-LêAí é uma aplicação web interativa, no estilo clube do livro, que permite aos usuários gerenciar sua biblioteca pessoal, descobrir novos títulos e acompanhar seu progresso de leitura[cite: 55]. O projeto foi desenvolvido como uma Single-Page Application (SPA) utilizando React, com foco em responsividade, interatividade e uma arquitetura moderna e escalável[cite: 18, 56].
+LêAí é uma aplicação web interativa, no estilo clube do livro, que permite aos usuários gerenciar sua biblioteca pessoal, descobrir novos títulos e acompanhar seu progresso de leitura. O projeto foi desenvolvido como uma Single-Page Application (SPA) utilizando React, com foco em responsividade, interatividade e uma arquitetura moderna e escalável.
 
 Esta aplicação foi construída como parte da avaliação do curso de Desenvolvimento Front-end com Frameworks, evoluindo desde a concepção inicial (TP1), passando pela primeira implementação visual (TP2), até a versão atual (TP3) com persistência de dados, autenticação e funcionalidades avançadas.
 
@@ -15,14 +15,14 @@ Esta aplicação foi construída como parte da avaliação do curso de Desenvolv
 
 ## ✨ Funcionalidades Principais
 
-- **Autenticação de Usuários:** Fluxo completo de cadastro e login, com persistência de sessão para que o usuário recupere sua sessão ao retornar[cite: 60].
-- **Busca de Livros:** Integração com a Google Books API para pesquisar um vasto catálogo de livros por título ou autor[cite: 8, 65].
+- **Autenticação de Usuários:** Fluxo completo de cadastro e login, com persistência de sessão para que o usuário recupere sua sessão ao retornar.
+- **Busca de Livros:** Integração com a Google Books API para pesquisar um vasto catálogo de livros por título ou autor.
 - **Paginação:** A página de busca conta com um sistema de paginação para navegar por múltiplos resultados de forma eficiente.
-- **Página de Detalhes:** Ao clicar em um livro, o usuário é direcionado para uma página com informações detalhadas, como sinopse completa, editora, ano de publicação e número de páginas[cite: 100].
-- **Coleção Pessoal:** Os usuários podem adicionar livros à sua coleção pessoal, que é salva e vinculada à sua conta[cite: 10].
-- **Gerenciamento de Leitura:** É possível alterar o status de cada livro na coleção ("Quero Ler", "Lendo", "Lido", "Desisti"), registrar o progresso de leitura e dar uma nota (de 1 a 5 estrelas) para os livros já lidos[cite: 12, 14, 61].
-- **Design Responsivo (Mobile-First):** A interface foi construída com a filosofia Mobile-First, garantindo uma experiência de uso otimizada em dispositivos móveis e adaptável a telas maiores[cite: 34, 67].
-- **Feedback ao Usuário:** Notificações do tipo "toast" são utilizadas para dar feedback instantâneo sobre as ações realizadas (adicionar, remover, atualizar livro)[cite: 45].
+- **Página de Detalhes:** Ao clicar em um livro, o usuário é direcionado para uma página com informações detalhadas, como sinopse completa, editora, ano de publicação e número de páginas.
+- **Coleção Pessoal:** Os usuários podem adicionar livros à sua coleção pessoal, que é salva e vinculada à sua conta.
+- **Gerenciamento de Leitura:** É possível alterar o status de cada livro na coleção ("Quero Ler", "Lendo", "Lido", "Desisti"), registrar o progresso de leitura e dar uma nota (de 1 a 5 estrelas) para os livros já lidos.
+- **Design Responsivo (Mobile-First):** A interface foi construída com a filosofia Mobile-First, garantindo uma experiência de uso otimizada em dispositivos móveis e adaptável a telas maiores.
+- **Feedback ao Usuário:** Notificações do tipo "toast" são utilizadas para dar feedback instantâneo sobre as ações realizadas (adicionar, remover, atualizar livro).
 
 ---
 
@@ -109,15 +109,15 @@ Este é o planejamento para as futuras evoluções do projeto, baseado na visão
 
 #### Novas Funcionalidades (Features)
 
-- **[Feature] - Implementar Feed de Amigos:** Substituir os dados fictícios da página de Feed por uma lógica real, buscando atividades de outros usuários na API[cite: 62].
-- **[Feature] - Sistema de "Seguir" Usuários:** Permitir que um usuário siga outros para ver suas atividades no feed[cite: 62].
-- **[Feature] - Escrever Resenhas:** Na Página de Detalhes do Livro, adicionar um campo para que o usuário possa escrever e salvar uma resenha em texto[cite: 63].
+- **[Feature] - Implementar Feed de Amigos:** Substituir os dados fictícios da página de Feed por uma lógica real, buscando atividades de outros usuários na API.
+- **[Feature] - Sistema de "Seguir" Usuários:** Permitir que um usuário siga outros para ver suas atividades no feed.
+- **[Feature] - Escrever Resenhas:** Na Página de Detalhes do Livro, adicionar um campo para que o usuário possa escrever e salvar uma resenha em texto.
 - **[Feature] - Escaneamento de ISBN:** Implementar um botão na página de busca que utiliza a câmera do dispositivo para escanear o código de barras de um livro.
 
 #### Melhorias (Improvements)
 
 - **[Melhoria] - Filtros na Coleção:** Na página "Minha Coleção", adicionar botões para filtrar a visualização de livros por status.
-- **[Melhoria] - Gestos Mobile:** Implementar um gesto de "arrastar para o lado" no `CartaoLivro` para revelar opções rápidas, como "Remover" ou "Alterar Status"[cite: 66, 103].
+- **[Melhoria] - Gestos Mobile:** Implementar um gesto de "arrastar para o lado" no `CartaoLivro` para revelar opções rápidas, como "Remover" ou "Alterar Status".
 
 #### Questões Técnicas / Refactoring
 

@@ -29,7 +29,7 @@ export function Colecao({ livros, onRemover, onAtualizar }) {
             ?
           </p>
         ) : (
-          <div className="grid-livros">
+          <div className="grid-livros grid-livros-uniforme">
             {livros.map((livro) => (
               <CartaoLivro
                 key={livro.id}

@@ -16,8 +16,6 @@ export function CartaoLivro({
 }) {
   const [expandirSinopse, setExpandirSinopse] = useState(false);
   const [editandoStatus, setEditandoStatus] = useState(false);
-  const sinopseCurta =
-    sinopse?.length > 150 ? sinopse.slice(0, 150) + "..." : sinopse;
 
   const handleStatusChange = (e) => {
     if (onTrocarStatus) {
@@ -55,9 +53,11 @@ export function CartaoLivro({
           <p className="autor">{autor}</p>
 
           {sinopse && (
-            <div className="sinopse">
-              <p>{expandirSinopse ? sinopse : sinopseCurta}</p>
-              {sinopse.length > 200 && (
+            <div
+              className={`sinopse ${!expandirSinopse ? "sinopse-truncada" : ""}`}
+            >
+              <p>{sinopse}</p>
+              {sinopse.length > 150 && (
                 <button
                   className="botao-link"
                   onClick={(e) => {

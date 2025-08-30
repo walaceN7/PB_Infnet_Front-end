@@ -1,0 +1,134 @@
+# 📖 LêAí - Clube do Livro Interativo
+
+**Projeto de Bloco: Desenvolvimento Front-end com Frameworks [25E2_5]**
+**Aluno: Walace Abreu dos Santos Filho**
+
+---
+
+## 📚 Sobre o Projeto
+
+LêAí é uma aplicação web interativa, no estilo clube do livro, que permite aos usuários gerenciar sua biblioteca pessoal, descobrir novos títulos e acompanhar seu progresso de leitura[cite: 55]. O projeto foi desenvolvido como uma Single-Page Application (SPA) utilizando React, com foco em responsividade, interatividade e uma arquitetura moderna e escalável[cite: 18, 56].
+
+Esta aplicação foi construída como parte da avaliação do curso de Desenvolvimento Front-end com Frameworks, evoluindo desde a concepção inicial (TP1), passando pela primeira implementação visual (TP2), até a versão atual (TP3) com persistência de dados, autenticação e funcionalidades avançadas.
+
+---
+
+## ✨ Funcionalidades Principais
+
+- **Autenticação de Usuários:** Fluxo completo de cadastro e login, com persistência de sessão para que o usuário recupere sua sessão ao retornar[cite: 60].
+- **Busca de Livros:** Integração com a Google Books API para pesquisar um vasto catálogo de livros por título ou autor[cite: 8, 65].
+- **Paginação:** A página de busca conta com um sistema de paginação para navegar por múltiplos resultados de forma eficiente.
+- **Página de Detalhes:** Ao clicar em um livro, o usuário é direcionado para uma página com informações detalhadas, como sinopse completa, editora, ano de publicação e número de páginas[cite: 100].
+- **Coleção Pessoal:** Os usuários podem adicionar livros à sua coleção pessoal, que é salva e vinculada à sua conta[cite: 10].
+- **Gerenciamento de Leitura:** É possível alterar o status de cada livro na coleção ("Quero Ler", "Lendo", "Lido", "Desisti"), registrar o progresso de leitura e dar uma nota (de 1 a 5 estrelas) para os livros já lidos[cite: 12, 14, 61].
+- **Design Responsivo (Mobile-First):** A interface foi construída com a filosofia Mobile-First, garantindo uma experiência de uso otimizada em dispositivos móveis e adaptável a telas maiores[cite: 34, 67].
+- **Feedback ao Usuário:** Notificações do tipo "toast" são utilizadas para dar feedback instantâneo sobre as ações realizadas (adicionar, remover, atualizar livro)[cite: 45].
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Frontend:** React.js
+- **Roteamento:** React Router DOM
+- **Cliente HTTP:** Axios
+- **Notificações:** React Hot Toast
+- **Backend (Mock):** MockAPI
+- **API de Dados:** Google Books API
+
+---
+
+## 🔧 Instalação e Execução
+
+Para executar este projeto localmente, siga os passos abaixo:
+
+1.  **Clone o repositório:**
+
+    ```bash
+    git clone https://github.com/walaceN7/PB_Infnet_Front-end.git
+    cd nome-do-projeto
+    ```
+
+2.  **Instale as dependências:**
+
+    ```bash
+    yarn install
+    ```
+
+3.  **Crie o arquivo de ambiente:**
+
+    - Na raiz do projeto, crie um arquivo chamado `.env`.
+    - Dentro dele, adicione a URL base da MockAPI. (O link da API vai estar no PDF)
+
+    ```
+    REACT_APP_API_URL=https://SUA_URL_DO_MOCKAPI.mockapi.io
+    ```
+
+4.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    yarn start
+    ```
+    O aplicativo será aberto automaticamente em `http://localhost:3000`.
+
+---
+
+## 📂 Estrutura do Projeto
+
+O projeto foi organizado visando a separação de responsabilidades para facilitar a manutenção e escalabilidade.
+
+```
+/src
+|-- /app
+|   |-- /http
+|       |-- index.js       # Cliente Axios centralizado
+|-- /componentes
+|   |-- CartaoLivro.jsx
+|   |-- Navegacao.jsx
+|   |-- ...              # Componentes reutilizáveis
+|-- /hooks
+|   |-- useBuscaDeLivros.js # Hook para a lógica de busca
+|-- /paginas
+|   |-- App.js             # Componente raiz e roteador
+|   |-- Busca.jsx
+|   |-- Colecao.jsx
+|   |-- DetalheLivro.jsx
+|   |-- Login.jsx
+|   |-- ...
+|-- /services
+|   |-- colecoesService.js # Lógica da API de coleções
+|   |-- googleBooksService.js # Lógica da API do Google Books
+|   |-- usuarioService.js    # Lógica da API de usuários
+|-- App.css                # Estilos globais
+|-- index.js               # Ponto de entrada da aplicação
+```
+
+---
+
+## 🗺️ Backlog (Próximas Funcionalidades)
+
+Este é o planejamento para as futuras evoluções do projeto, baseado na visão original e nas possibilidades de expansão.
+
+#### Novas Funcionalidades (Features)
+
+- **[Feature] - Implementar Feed de Amigos:** Substituir os dados fictícios da página de Feed por uma lógica real, buscando atividades de outros usuários na API[cite: 62].
+- **[Feature] - Sistema de "Seguir" Usuários:** Permitir que um usuário siga outros para ver suas atividades no feed[cite: 62].
+- **[Feature] - Escrever Resenhas:** Na Página de Detalhes do Livro, adicionar um campo para que o usuário possa escrever e salvar uma resenha em texto[cite: 63].
+- **[Feature] - Escaneamento de ISBN:** Implementar um botão na página de busca que utiliza a câmera do dispositivo para escanear o código de barras de um livro.
+
+#### Melhorias (Improvements)
+
+- **[Melhoria] - Filtros na Coleção:** Na página "Minha Coleção", adicionar botões para filtrar a visualização de livros por status.
+- **[Melhoria] - Gestos Mobile:** Implementar um gesto de "arrastar para o lado" no `CartaoLivro` para revelar opções rápidas, como "Remover" ou "Alterar Status"[cite: 66, 103].
+
+#### Questões Técnicas / Refactoring
+
+- **[Técnico] - Criar Testes Unitários:** Escrever testes para os `services` e para o hook `useBuscaDeLivros` para garantir a estabilidade do código.
+- **[Técnico] - Utilizar Context API:** Refatorar o gerenciamento do estado do `usuario` para utilizar a Context API do React, evitando a necessidade de passar a prop por múltiplos níveis de componentes.
+
+---
+
+## 👨‍💻 Autor
+
+**Walace Abreu dos Santos Filho**
+
+- **LinkedIn:** https://www.linkedin.com/in/walace-abreu/
+- **GitHub:** https://github.com/walaceN7

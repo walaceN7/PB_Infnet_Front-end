@@ -519,6 +519,41 @@ h2 {
   color: inherit;
 }
 
+/*----- Filtros da Coleção -----*/
+
+.filtros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+.filtro-botao {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background-color: var(--fundo-card);
+  color: var(--texto-secundario);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.filtro-botao:hover {
+  background-color: var(--fundo-feed);
+  border-color: var(--texto-suave);
+}
+
+.filtro-botao.ativo {
+  background-color: var(--primaria);
+  color: var(--fundo-card);
+  border-color: var(--primaria);
+  box-shadow: var(--sombra);
+}
+
 /*----- RESPONSIVIDADE -----*/
 
 @media (min-width: 600px) {
@@ -559,15 +594,33 @@ h2 {
   }
 }
 
-.grid-livros-uniforme {
-  align-items: stretch;
+/* Correção para manter altura uniforme com Flexbox */
+.grid-livros.grid-livros-uniforme {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .grid-livros-uniforme .cartao-livro-link {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* A base do flex é controlada nas media queries */
+  flex-basis: 100%;
 }
 
 .grid-livros-uniforme .cartao-livro {
   height: 100%;
   justify-content: space-between;
+}
+
+/* Mantém o comportamento responsivo do grid original com flexbox */
+@media (min-width: 600px) {
+  .grid-livros-uniforme .cartao-livro-link {
+    flex-basis: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-livros-uniforme .cartao-livro-link {
+    flex-basis: 240px;
+  }
 }

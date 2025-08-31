@@ -2,8 +2,19 @@ import { CartaoLivro } from "../componentes/CartaoLivro";
 import { BarraProgresso } from "../componentes/BarraProgresso";
 import { AvaliacaoEstrelas } from "../componentes/AvaliacaoEstrelas";
 import { Link } from "react-router-dom";
+import { useMemo, useState } from "react";
 
 export function Colecao({ livros, onRemover, onAtualizar }) {
+  const [filtroAtivo, setFiltroAtivo] = useState("Lendo");
+  const filtros = ["Lendo", "Lido", "Quero Ler", "Desisti", "Todos"];
+
+  const livrosFiltrados = useMemo(() => {
+    if (filtroAtivo === "Todos") {
+      return livros;
+    }
+    return livros.filter((livro) => livro.status === filtroAtivo);
+  }, [livros, filtroAtivo]);
+
   const trocarStatus = (id, novoStatus) => {
     onAtualizar(id, { status: novoStatus });
   };
@@ -20,6 +31,21 @@ export function Colecao({ livros, onRemover, onAtualizar }) {
     <>
       <section>
         <h2>📖 Minha Coleção</h2>
+
+        <div className="filtros-container">
+          {filtros.map((filtro) => (
+            <button
+              key={filtro}
+              className={`filtro-botao ${
+                filtroAtivo === filtro ? "ativo" : ""
+              }`}
+              onClick={() => setFiltroAtivo(filtro)}
+            >
+              {filtro}
+            </button>
+          ))}
+        </div>
+
         {livros.length === 0 ? (
           <p className="feedback-usuario">
             Sua coleção está vazia. Que tal{" "}
@@ -30,7 +56,7 @@ export function Colecao({ livros, onRemover, onAtualizar }) {
           </p>
         ) : (
           <div className="grid-livros grid-livros-uniforme">
-            {livros.map((livro) => (
+            {livrosFiltrados.map((livro) => (
               <CartaoLivro
                 key={livro.id}
                 {...livro}

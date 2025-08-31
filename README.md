@@ -71,38 +71,6 @@ Para executar este projeto localmente, siga os passos abaixo:
 
 ---
 
-## 📂 Estrutura do Projeto
-
-O projeto foi organizado visando a separação de responsabilidades para facilitar a manutenção e escalabilidade.
-
-```
-/src
-|-- /app
-|   |-- /http
-|       |-- index.js       # Cliente Axios centralizado
-|-- /componentes
-|   |-- CartaoLivro.jsx
-|   |-- Navegacao.jsx
-|   |-- ...              # Componentes reutilizáveis
-|-- /hooks
-|   |-- useBuscaDeLivros.js # Hook para a lógica de busca
-|-- /paginas
-|   |-- App.js             # Componente raiz e roteador
-|   |-- Busca.jsx
-|   |-- Colecao.jsx
-|   |-- DetalheLivro.jsx
-|   |-- Login.jsx
-|   |-- ...
-|-- /services
-|   |-- colecoesService.js # Lógica da API de coleções
-|   |-- googleBooksService.js # Lógica da API do Google Books
-|   |-- usuarioService.js    # Lógica da API de usuários
-|-- App.css                # Estilos globais
-|-- index.js               # Ponto de entrada da aplicação
-```
-
----
-
 ## 🗺️ Backlog (Próximas Funcionalidades)
 
 Este é o planejamento para as futuras evoluções do projeto, baseado na visão original e nas possibilidades de expansão.
@@ -111,13 +79,6 @@ Este é o planejamento para as futuras evoluções do projeto, baseado na visão
 
 - **[Feature] - Implementar Feed de Amigos:** Substituir os dados fictícios da página de Feed por uma lógica real, buscando atividades de outros usuários na API.
 - **[Feature] - Sistema de "Seguir" Usuários:** Permitir que um usuário siga outros para ver suas atividades no feed.
-- **[Feature] - Escrever Resenhas:** Na Página de Detalhes do Livro, adicionar um campo para que o usuário possa escrever e salvar uma resenha em texto.
-- **[Feature] - Escaneamento de ISBN:** Implementar um botão na página de busca que utiliza a câmera do dispositivo para escanear o código de barras de um livro.
-
-#### Melhorias (Improvements)
-
-- **[Melhoria] - Filtros na Coleção:** Na página "Minha Coleção", adicionar botões para filtrar a visualização de livros por status.
-- **[Melhoria] - Gestos Mobile:** Implementar um gesto de "arrastar para o lado" no `CartaoLivro` para revelar opções rápidas, como "Remover" ou "Alterar Status".
 
 #### Questões Técnicas / Refactoring
 

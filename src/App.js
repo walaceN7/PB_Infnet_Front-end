@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import { Colecao } from "./paginas/Colecao";
 import { Busca } from "./paginas/Busca";
 import { Feed } from "./paginas/Feed";
@@ -10,6 +16,31 @@ import { getColecao, salvarColecao } from "./services/colecoesService";
 import "./estilos/App.css";
 import toast, { Toaster } from "react-hot-toast";
 import { DetalheLivro } from "./paginas/DetalheLivro";
+
+function PageTitleUpdater() {
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        document.title = "Minha Coleção - LêAí";
+        break;
+      case "/buscar":
+        document.title = "Buscar Livros - LêAí";
+        break;
+      case "/feed":
+        document.title = "Feed de Amigos - LêAí";
+        break;
+      case "/login":
+        document.title = "Login - LêAí";
+        break;
+      default:
+        document.title = "LêAí - Clube do Livro";
+    }
+  }, [location]);
+
+  return null;
+}
 
 export default function App() {
   const [usuario, setUsuario] = useState(null);
@@ -81,6 +112,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <PageTitleUpdater />
       <Toaster position="top-center" />
       <div className="app-container">
         <h1>📚 Clube do Livro - LêAí</h1>

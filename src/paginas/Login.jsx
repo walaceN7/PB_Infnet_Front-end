@@ -24,7 +24,11 @@ export function Login({ onLogin }) {
     <section className="login-container">
       <h2>🔐 Login</h2>
       <form onSubmit={handleLogin}>
+        <label htmlFor="email-login" className="sr-only">
+          E-mail
+        </label>
         <input
+          id="email-login"
           type="email"
           value={email}
           placeholder="E-mail"
@@ -32,7 +36,12 @@ export function Login({ onLogin }) {
           required
           className="input"
         />
+
+        <label htmlFor="senha-login" className="sr-only">
+          Senha
+        </label>
         <input
+          id="senha-login"
           type="password"
           value={senha}
           placeholder="Senha"

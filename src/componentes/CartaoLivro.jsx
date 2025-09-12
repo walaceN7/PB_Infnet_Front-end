@@ -33,7 +33,11 @@ export function CartaoLivro({
 
   return (
     <Link to={`/livro/${id}`} className="cartao-livro-link">
-      <div className="cartao-livro">
+      <div
+        className="cartao-livro"
+        role="listitem"
+        aria-labelledby={`titulo-${id}`}
+      >
         {onRemover && (
           <button
             className="botao-remover-card"
@@ -42,7 +46,7 @@ export function CartaoLivro({
               e.stopPropagation();
               onRemover();
             }}
-            aria-label="Remover livro"
+            aria-label="Remover livro da coleção"
           >
             &times;
           </button>
@@ -54,7 +58,9 @@ export function CartaoLivro({
 
           {sinopse && (
             <div
-              className={`sinopse ${!expandirSinopse ? "sinopse-truncada" : ""}`}
+              className={`sinopse ${
+                !expandirSinopse ? "sinopse-truncada" : ""
+              }`}
             >
               <p>{sinopse}</p>
               {sinopse.length > 150 && (

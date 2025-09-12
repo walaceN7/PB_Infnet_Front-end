@@ -27,7 +27,11 @@ export function Cadastro() {
     <section className="login-container">
       <h2>📝 Cadastro</h2>
       <form onSubmit={handleCadastro}>
+        <label htmlFor="usuario-cadastro" className="sr-only">
+          Senha
+        </label>
         <input
+          id="usuario-cadastro"
           type="text"
           value={usuario}
           placeholder="Usuário"
@@ -35,7 +39,12 @@ export function Cadastro() {
           required
           className="input"
         />
+
+        <label htmlFor="email-cadastro" className="sr-only">
+          Senha
+        </label>
         <input
+          id="email-cadastro"
           type="email"
           value={email}
           placeholder="E-mail"
@@ -43,7 +52,12 @@ export function Cadastro() {
           required
           className="input"
         />
+
+        <label htmlFor="senha-cadastro" className="sr-only">
+          Senha
+        </label>
         <input
+          id="senha-cadastro"
           type="password"
           value={senha}
           placeholder="Senha"

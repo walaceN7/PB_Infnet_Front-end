@@ -47,6 +47,13 @@ export default function App() {
   const [colecao, setColecao] = useState([]);
 
   useEffect(() => {
+    const usuarioSalvo = localStorage.getItem("usuario");
+    if (usuarioSalvo) {
+      setUsuario(JSON.parse(usuarioSalvo));
+    }
+  }, []);
+
+  useEffect(() => {
     if (usuario && usuario.email) {
       carregarColecao(usuario.email);
     } else {
